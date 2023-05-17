@@ -1,0 +1,111 @@
+﻿<Window x:Class="WpfExam.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfExam"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="0">
+            <TextBlock Width="100"
+                       Height="30"
+                       Padding="15,5,5,5"
+                       Text="Поиск по фио"/>
+            <TextBox Width="120"
+                     Height="30"
+                     Name="TxtSearch"
+                     TextChanged="TxtSearch_TextChanged"/>
+            <TextBlock Width="120"
+                       Height="40"
+                       Padding="15,15,0,15"
+                       Text="Фильтр по группе"/>
+            <ComboBox Name="Combine"
+                      SelectionChanged="Combine_SelectionChanged_1"
+                      Width="160"
+                      Height="30"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <DataGrid Name="DtgListPreparate"
+                      IsReadOnly="True"
+                      Margin="5"
+                      AutoGenerateColumns="False"
+                      VerticalScrollBarVisibility="Auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        Header="ФИО" Width="*"
+                        Binding="{Binding Fio}"/>
+                    <DataGridTextColumn
+                        Header="Группа" Width="*"
+                        Binding="{Binding Nambers}"/>
+                    <DataGridTextColumn
+                        Header="Успев МДК11.01" Width="*"
+                        Binding="{Binding Performance1}"/>
+                    <DataGridTextColumn
+                        Header="Успев МДК01.01" Width="*"
+                        Binding="{Binding Performance2}"/>
+                    <DataGridTextColumn
+                        Header="Успев ИТ" Width="*"
+                        Binding="{Binding Performance3}"/>
+                    <DataGridTextColumn
+                        Header="Успев Ин яз" Width="*"
+                        Binding="{Binding Performance4}"/>
+                    <DataGridTextColumn
+                        Header="Успев Физ-ра" Width="*"
+                        Binding="{Binding Performance5}"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Row="2" 
+                    Orientation="Horizontal">
+            <Button Content="Добавить"
+                    Width="150"
+                    Height="30"
+                    Margin="10"
+                     Style="{StaticResource StyleSolveButton}"
+                    Click="Button_Click"
+                    Name="Add"/>
+            <Button Content="очистить"
+                    Name="clear"
+                    Click="clear_Click"
+                    Width="150"
+                    Height="30"
+                    Margin="10"
+                     Style="{StaticResource StyleSolveButton}"/>
+            <Button Content="Открыть"
+                    Name="open"
+                    Click="open_Click"
+                    Width="150"
+                    Height="30"
+                    Margin="10"
+                     Style="{StaticResource StyleSolveButton}"/>
+            <Button Content="сохранить"
+                    Name="save"
+                    Click="save_Click"
+                    Width="150"
+                    Height="30"
+                    Margin="10"
+                     Style="{StaticResource StyleSolveButton}"/>
+            <Button Content="Удалить"
+                    Name="Delete"
+                    Click="delete_Click"
+                    Width="150"
+                    Height="30"
+                    Margin="10"
+                     Style="{StaticResource StyleSolveButton}"/>
+        </StackPanel>
+    </Grid>
+    
+</Window>
